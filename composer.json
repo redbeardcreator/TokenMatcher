@@ -1,0 +1,27 @@
+{
+    "name": "redbeardcreator/tokenmatcher",
+    "description": "Library to simplify the use of PHPParser",
+    "require": {
+        "nikic/php-parser": "~1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Johnson",
+            "email": "redbeard@mdjohnson.us"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RC\\TokenMatcher\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RC\\TokenMatcher\\": "tests/"
+        }
+    }
+}
