@@ -3,8 +3,8 @@ WARNING
 
 Code in early development. Expect API to change.
 
-TokenMatcher
-============
+TokenMatcher (WIP)
+==================
 
 TokenMatcher is intended to be a simple wrapper around PhpParser. The hope is to simplify the use
 of that wonderful library when you are trying to assert whether a given node matches a particular
