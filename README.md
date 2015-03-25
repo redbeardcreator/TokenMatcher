@@ -47,6 +47,6 @@ if ($assertion->passed()) {
 You can look in `Examples/Sample.php` to see an idea for a more fluent flow.
 
 I've been experimenting using [PsySH](http://psysh.org/). I'll start it and include
-`examples\Sample.php`. Then I start poking at things. PsySH is currently a development dependency,
-so it can be invoked from the root with `vendor/bin/psysh'. However, this will go away as soon as
+`examples/Sample.php`. Then I start poking at things. PsySH is currently a development dependency,
+so it can be invoked from the root with `vendor/bin/psysh`. However, this will go away as soon as
 I've settled on the core API. At that point I'll start focusing on unit tests instead.
