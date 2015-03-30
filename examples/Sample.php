@@ -1,6 +1,6 @@
 <?php
 
-use RC\TokenMatcher\AssertionFactory;
+use RC\TokenMatcher\AssertionFactory as Factory;
 use RC\TokenMatcher\Assertion;
 
 $autoloaderPath = __DIR__ . '/../vendor/autoload.php';
@@ -45,12 +45,12 @@ class TestIt
 $c = new TestIt("I'm a little teapot");
 $c->publicMethod();
 
-$af = new AssertionFactory;
+$af = new Factory;
 $s = $statements;
 
 function assertNode($node)
 {
-    $af = new AssertionFactory;
+    $af = new Factory;
     return $af->createFromNode($node);
 }
 
@@ -73,4 +73,20 @@ function succeedIf(Assertion $assertion)
     return "Pass";
 }
 
-echo succeedIf(assertNode($s[0])->isUseStatement()) . "\n";
+echo "\n" . succeedIf(assertNode($s[0])->isUseStatement()) . "\n";
+
+foreach ($s as $statement) {
+    $assertion = assertNode($statement)->isCall();
+
+    $isFC = $assertion->passed();
+    printf("[%s] -> %s\n", get_class($statement), $isFC ? 'yes' : 'no');
+    if ($assertion->isMethodCall()->passed()) {
+        var_dump($statement->var);
+    }
+    if ($isFC) {
+        var_dump($statement);
+        exit;
+    }
+}
+
+echo "Didn't find a function call\n";
