@@ -24,15 +24,50 @@ class Assertion
         return $this->failedAt;
     }
 
+    public function isAssignment()
+    {
+        $this->assert('Not an assignment.');
+        return $this;
+    }
+
+    /**
+     * True if this is a call of some sort
+     *
+     * Applies to method calls and function calls
+     */
+    public function isCall()
+    {
+        $this->assert('Not a call expression.');
+        return $this;
+    }
+
+    public function isClassDefinition()
+    {
+        $this->assert('Not a class definition statement.');
+        return $this;
+    }
+
+    public function isEchoStatement()
+    {
+        $this->assert('Not an echo statement.');
+        return $this;
+    }
+
     public function isExpression()
     {
         $this->assert('Not an expression.');
         return $this;
     }
 
-    public function isAssignment()
+    public function isFunctionCall()
     {
-        $this->assert('Not an assignment.');
+        $this->assert('Not a function call.');
+        return $this;
+    }
+
+    public function isFunctionDefinition()
+    {
+        $this->assert('Not a function definition statement.');
         return $this;
     }
 
@@ -51,24 +86,6 @@ class Assertion
     public function isStatement()
     {
         $this->assert('Not a statement.');
-        return $this;
-    }
-
-    public function isClassDefinition()
-    {
-        $this->assert('Not a class definition statement.');
-        return $this;
-    }
-
-    public function isEchoStatement()
-    {
-        $this->assert('Not an echo statement.');
-        return $this;
-    }
-
-    public function isFunctionDefinition()
-    {
-        $this->assert('Not a function definition statement.');
         return $this;
     }
 
