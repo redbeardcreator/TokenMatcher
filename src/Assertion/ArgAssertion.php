@@ -10,4 +10,9 @@ class ArgAssertion extends Assertion
     {
         return $this;
     }
+
+    public function getValue()
+    {
+        return $this->factory->createFromNode($this->node->value);
+    }
 }

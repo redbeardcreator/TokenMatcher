@@ -26,6 +26,12 @@ class Assertion
         return $this->failedAt;
     }
 
+    public function isArgument()
+    {
+        $this->assert('Not an argument.');
+        return $this;
+    }
+
     public function isAssignment()
     {
         $this->assert('Not an assignment.');
@@ -85,15 +91,45 @@ class Assertion
         return $this;
     }
 
+    public function isNamedFunctionCall($name)
+    {
+        $this->assert('Not a function call.');
+        return $this;
+    }
+
     public function isStatement()
     {
         $this->assert('Not a statement.');
         return $this;
     }
 
+    public function isString()
+    {
+        $this->assert('Not a string.');
+        return $this;
+    }
+
     public function isUseStatement()
     {
         $this->assert('Not a use statement.');
+        return $this;
+    }
+
+    public function withArg($pos)
+    {
+        $this->assert('Node does not have any arguments.');
+        return $this;
+    }
+
+    public function withStringArg($pos, $value)
+    {
+        $this->assert('Node does not have any arguments.');
+        return $this;
+    }
+
+    public function withValue($value)
+    {
+        $this->assert('Node has no value.');
         return $this;
     }
 
