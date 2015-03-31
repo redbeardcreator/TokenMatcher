@@ -2,7 +2,7 @@
 
 namespace RC\TokenMatcher\Assertion;
 
-use RC\TokenMatcher\Assertion
+use RC\TokenMatcher\Assertion;
 
 class ArgAssertion extends Assertion
 {
