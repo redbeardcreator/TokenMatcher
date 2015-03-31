@@ -80,13 +80,27 @@ foreach ($s as $statement) {
 
     $isFC = $assertion->passed();
     printf("[%s] -> %s\n", get_class($statement), $isFC ? 'yes' : 'no');
-    if ($assertion->isMethodCall()->passed()) {
-        var_dump($statement->var);
-    }
-    if ($isFC) {
-        var_dump($statement);
-        exit;
-    }
 }
 
-echo "Didn't find a function call\n";
+ini_set('display_errors', true);
+ini_set('cli.pager', 'less');
+
+assertNode($s[0]);
+
+function testDisplayErrors($node)
+{
+    failIf(
+        assertNode($node)
+        ->isFunctionCall('ini_set')
+        ->withStringArg(0, 'display_errors')
+    );
+}
+
+function render($nodes)
+{
+    if (!is_array($nodes)) {
+        $nodes = [$nodes];
+    }
+    $prettyPrinter = new PhpParser\PrettyPrinter\Standard;
+    return $prettyPrinter->prettyPrint($nodes);
+}
