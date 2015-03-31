@@ -7,11 +7,13 @@ use PhpParser\Node;
 class Assertion
 {
     protected $node;
+    protected $factory;
     protected $failedAt = false;
 
-    public function __construct(Node $node)
+    public function __construct(Node $node, AssertionFactory $factory)
     {
         $this->node = $node;
+        $this->factory = $factory;
     }
 
     public function passed()

@@ -15,6 +15,6 @@ class AssertionFactory
         $classParts = array_slice($classParts, 2);
         $targetClass = $this->baseNamespace . implode('\\', $classParts) . 'Assertion';
 
-        return new $targetClass($node);
+        return new $targetClass($node, $this);
     }
 }
